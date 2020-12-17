@@ -2,10 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b2bad554-d3e8-45a7-8799-8fe6d72d342b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mybatis-generator/target/classes/com/fan/learn/Test.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mybatis-generator/target/classes/com/fan/learn/mapper/TbUserMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mybatis-generator/target/classes/com/fan/learn/model/TbUser.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mybatis-generator/target/classes/generatorConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mybatis-generator/target/classes/mapper/TbUserMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mybatis/target/classes/META-INF/mybatis.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mybatis/target/classes/com/fan/learn/Generator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mybatis/target/classes/com/fan/learn/JDBCTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mybatis/target/classes/com/fan/learn/MyBatisWithXMLTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mybatis/target/classes/com/fan/learn/mapper/TbUserMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mybatis/target/classes/com/fan/learn/model/TbUser.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mybatis/target/classes/generatorConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mybatis/target/classes/mapper/TbUserMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mybatis/target/classes/mybatis-config.xml" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -42,7 +53,11 @@
       </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" column="3" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -82,6 +97,7 @@
         <option value="$PROJECT_DIR$/mybatis/src/main/java/com/fan/learn/MyBatisTest.java" />
         <option value="$PROJECT_DIR$/mybatis-generator/readme.md" />
         <option value="$PROJECT_DIR$/mybatis/readme.md" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -141,6 +157,16 @@
               <item name="learner" type="b2602c69:ProjectViewProjectNode" />
               <item name="learner" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="learner" type="b2602c69:ProjectViewProjectNode" />
+              <item name="learner" type="462c0819:PsiDirectoryNode" />
+              <item name="mybatis" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="learner" type="b2602c69:ProjectViewProjectNode" />
+              <item name="learner" type="462c0819:PsiDirectoryNode" />
+              <item name="mybatis-generator" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -151,6 +177,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/mybatis/src/main/java/com/fan/learn" />
@@ -269,12 +296,20 @@
       <workItem from="1607498160719" duration="19977000" />
       <workItem from="1607587037165" duration="46000" />
       <workItem from="1608167873501" duration="2985000" />
-      <workItem from="1608194536797" duration="1160000" />
+      <workItem from="1608194536797" duration="1443000" />
     </task>
+    <task id="LOCAL-00001" summary="添加gitignore文件">
+      <created>1608195771689</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1608195771689</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24168000" />
+    <option name="totallyTimeSpent" value="24451000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -348,6 +383,10 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="添加gitignore文件" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加gitignore文件" />
   </component>
   <component name="editorHistoryManager">
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_202/src.zip!/java/io/FileInputStream.java">
@@ -511,7 +550,11 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="3" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
+        </state>
+      </provider>
     </entry>
   </component>
   <component name="masterDetails">
