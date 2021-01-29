@@ -77,7 +77,15 @@
     * ConcurrentHashMap （entry数组分段； 线程安全）
     * Hashtable         （底层键值对数组； 键不可null 值不可null; 线程安全）
         * Properties    （底层键值对数组； 键String 值String; 线程安全）
+
 ***
+
+哈希(Hash)与加密(Encrypt)
+* 哈希（Hash）是将目标文本转换成具有相同长度的、不可逆的杂凑字符串（或叫做消息摘要）
+* 加密（Encrypt）是将目标文本转换成具有不同长度的、可逆的密文
+
+***
+
 解决哈希冲突的4种方法：
 * 开放地址方法
     * 线性探测再散列
@@ -86,7 +94,9 @@
 * 链式地址法（HashMap的哈希冲突解决方法）
 * 建立公共溢出区
 * 再哈希法
+
 ***
+
 比较的2种方法：
 * Comparable 的 compareTo
 * Comparator 的 compare
