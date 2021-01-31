@@ -12,6 +12,7 @@
         <module>mybatis</module>
         <module>mybatis-generator</module>
         <module>javaWeb</module>
+        <module>javaWebTest</module>
     </modules>
 
 
