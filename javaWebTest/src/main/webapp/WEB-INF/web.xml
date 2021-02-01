@@ -5,13 +5,104 @@
                       http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
 
+<!--    全局参数-->
+    <context-param>
+        <param-name>allMyKey</param-name>
+        <param-value>allMyValue</param-value>
+    </context-param>
+
+
+
+
     <servlet>
         <servlet-name>HelloServlet</servlet-name>
         <servlet-class>com.fan.servlet.HelloServlet</servlet-class>
+<!--        初始化参数-->
+        <init-param>
+            <param-name>myKey</param-name>
+            <param-value>myValue</param-value>
+        </init-param>
+        <!--        项目启动时加载当前servlet的init()方法-->
+        <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet-mapping>
         <servlet-name>HelloServlet</servlet-name>
         <url-pattern>/hello</url-pattern>
     </servlet-mapping>
 
+
+
+
+    <servlet>
+        <servlet-name>DownloadDemo</servlet-name>
+        <servlet-class>com.fan.servlet.DownloadServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DownloadDemo</servlet-name>
+        <url-pattern>/download</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AutoRefreshServlet</servlet-name>
+        <servlet-class>com.fan.servlet.AutoRefreshServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AutoRefreshServlet</servlet-name>
+        <url-pattern>/refresh</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>BanCacheServlet</servlet-name>
+        <servlet-class>com.fan.servlet.BanCacheServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>BanCacheServlet</servlet-name>
+        <url-pattern>/ban</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ZipDataServlet</servlet-name>
+        <servlet-class>com.fan.servlet.ZipDataServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ZipDataServlet</servlet-name>
+        <url-pattern>/zip</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>RandomPicServlet</servlet-name>
+        <servlet-class>com.fan.servlet.RandomPicServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RandomPicServlet</servlet-name>
+        <url-pattern>/pic</url-pattern>
+    </servlet-mapping>CookieServlet
+
+    <servlet>
+        <servlet-name>CookieServlet</servlet-name>
+        <servlet-class>com.fan.servlet.CookieServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CookieServlet</servlet-name>
+        <url-pattern>/cookie</url-pattern>
+    </servlet-mapping>
+
+<!--    tomcat配置文件里有以下代码，servlet会继承-->
+<!--    <servlet>-->
+<!--        <servlet-name>default</servlet-name>-->
+<!--        <servlet-class>org.apache.catalina.servlets.DefaultServlet</servlet-class>-->
+<!--        <init-param>-->
+<!--            <param-name>debug</param-name>-->
+<!--            <param-value>0</param-value>-->
+<!--        </init-param>-->
+<!--        <init-param>-->
+<!--            <param-name>listings</param-name>-->
+<!--            <param-value>false</param-value>-->
+<!--        </init-param>-->
+<!--        <load-on-startup>1</load-on-startup>-->
+<!--    </servlet>-->
+<!--    <servlet-mapping>-->
+<!--        <servlet-name>default</servlet-name>-->
+<!--        <url-pattern>/</url-pattern>-->
+<!--    </servlet-mapping>-->
 </web-app>
