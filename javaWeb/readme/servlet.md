@@ -34,6 +34,11 @@
 * 开发Servlet，最优方法是继承HttpServlet
 
 #### 1.2.4 Servlet 调用图
+* page(jsp有效)------》page域指的是pageContext.
+* request(一次请求)---》request域request HttpServletContext
+* session(一次会话)---》session域session HttpSession
+* application(当前web应用)---》application域指的是application  ServletContext；
+
 ![替代文字](../resources/servlet/servlet0.jpg)
 
 #### 1.2.5 Servlet 一些细节
