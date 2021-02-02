@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="personDaoImpl" name="personDaoImpl" class="com.fan.learn.now.dao.PersonDaoImpl"></bean>
+
+<!--通过 setter 注入 本质：setter -->
+<!--    <bean id="personServiceImpl" name="personServiceImpl" class="com.fan.learn.now.service.PersonServiceImpl">-->
+<!--        <property name="personDaoImpl" ref="personDaoImpl"></property>-->
+<!--    </bean>-->
+
+<!--通过 constructor 注入-->
+<!--    <bean id="personServiceImpl" name="personServiceImpl" class="com.fan.learn.now.service.PersonServiceImpl">-->
+<!--        <constructor-arg ref="personDaoImpl"/>-->
+<!--    </bean>-->
+
+<!--通过 p 名称空间 注入 本质：setter-->
+<!--    <bean id="personServiceImpl" name="personServiceImpl" class="com.fan.learn.now.service.PersonServiceImpl" p:personDaoImpl-ref="personDaoImpl">-->
+<!--    </bean>-->
+
+<!--XML 根据名字 自动注入 本质：setter-->
+<!--    <bean id="personServiceImpl" name="personServiceImpl" class="com.fan.learn.now.service.PersonServiceImpl" autowire="byName">-->
+<!--    </bean>-->
+
+<!--XML 根据类型 自动注入 本质：setter-->
+<!--    <bean id="personServiceImpl" name="personServiceImpl" class="com.fan.learn.now.service.PersonServiceImpl" autowire="byType">-->
+<!--    </bean>-->
+</beans>
