@@ -17,7 +17,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public int add(User user) {
         //第一种方式 直接new一个新对象
-//        UserDao userDao = new UserDaoImpl();
+//        UserDaoImpl userDao = new UserDaoImpl();
 
 
         //写 DaoFactory 用字符串来维护依赖关系

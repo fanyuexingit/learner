@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-        https://www.springframework.org/schema/beans/spring-beans.xsd">
+        https://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 
-    <bean id="personDaoImpl" name="personDaoImpl" class="com.fan.learn.now.dao.PersonDaoImpl"></bean>
+<!--    <bean id="personDaoImpl" name="personDaoImpl" class="com.fan.learn.now.dao.PersonDaoImpl"></bean>-->
 
 <!--通过 setter 注入 本质：setter -->
 <!--    <bean id="personServiceImpl" name="personServiceImpl" class="com.fan.learn.now.service.PersonServiceImpl">-->
@@ -28,4 +28,16 @@
 <!--XML 根据类型 自动注入 本质：setter-->
 <!--    <bean id="personServiceImpl" name="personServiceImpl" class="com.fan.learn.now.service.PersonServiceImpl" autowire="byType">-->
 <!--    </bean>-->
+
+
+
+
+    <context:component-scan base-package="com.fan.learn.aop.now"/>
+
+    <bean id="staticProxy" class="com.fan.learn.aop.now.ProxyFactory" factory-method="getProxyInstance">
+        <constructor-arg index="0" ref="UserDaoImpl"/>
+        <constructor-arg index="1" ref="Aop"/>
+    </bean>
+<!--    <bean id="UserDaoImpl" class="com.fan.learn.aop.now.UserDaoImpl"/>-->
+<!--    <bean id="Aop" class="com.fan.learn.aop.now.Aop"/>-->
 </beans>
