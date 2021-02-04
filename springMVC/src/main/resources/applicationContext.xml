@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc
+        https://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+
+
+    <!-- 默认 注册 映射器(handler包)(框架)【可省略】 -->
+    <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="mappings">
+            <props>
+                <prop key="/hello.action">helloAction</prop>
+                <prop key="/bye.action">helloAction</prop>
+            </props>
+        </property>
+    </bean>
+
+    <!-- 默认 注册 适配器【可省略】 -->
+    <bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"></bean>
+
+    <!--
+    默认 注册 视图解析器【可省略】
+    如果Action中书写的是视图逻辑名称，那么视图解析器就必须配置
+    如果Action中书写的是视图真实名称，那么视图解析器就可选配置
+-->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <!-- 路径前缀 -->
+<!--        <property name="prefix" value="/"/>-->
+        <!-- 路径后缀 -->
+<!--        <property name="suffix" value=".jsp"/>-->
+        <!-- 前缀+视图逻辑名+后缀=真实路径 -->
+    </bean>
+
+    <!-- 专用于jsp到jsp/html的转发 控制器 -->
+    <bean name="/ok.action" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+        <!-- 转发到真实视图名 -->
+        <property name="viewName" value="/WEB-INF/ok.jsp"/>
+    </bean>
+
+
+
+
+
+    <bean id="helloAction" name="/hello.action" class="com.fan.learn.HelloAction" ></bean>
+
+
+    <context:component-scan base-package="com.fan.learn"/>
+
+    <!-- 基于注解的映射器(可选) -->
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/>
+
+    <!-- 基于注解的适配器(可选) -->
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+        <!-- 集成 jackson       -->
+        <property name="messageConverters">
+            <list>
+                <!-- 设置返回字符串编码 -->
+                <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+                    <property name = "supportedMediaTypes">
+                        <list>
+                            <value>text/html;charset=UTF-8</value>
+                            <value>application/json;charset=UTF-8</value>
+                        </list>
+                    </property>
+                </bean>
+                <!-- json转换器 -->
+                <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+                    <property name="supportedMediaTypes">
+                        <list>
+                            <value>text/html;charset=UTF-8</value>
+                            <value>application/json;charset=UTF-8</value>
+                        </list>
+                    </property>
+                </bean>
+            </list>
+        </property>
+    </bean>
+
+    <!-- 视图解析器(可选) -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"/>
+
+    <!-- 相当于 映射器  适配器 配置-->
+    <mvc:annotation-driven/>
+
+
+
+</beans>
