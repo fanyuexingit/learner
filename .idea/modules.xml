@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/javaWeb/javaWeb.iml" filepath="$PROJECT_DIR$/javaWeb/javaWeb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javaWebTest/javaWebTest.iml" filepath="$PROJECT_DIR$/javaWebTest/javaWebTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/learner.iml" filepath="$PROJECT_DIR$/.idea/learner.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mybatis/mybatis.iml" filepath="$PROJECT_DIR$/mybatis/mybatis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mybatis-generator/mybatis-generator.iml" filepath="$PROJECT_DIR$/mybatis-generator/mybatis-generator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring/spring.iml" filepath="$PROJECT_DIR$/spring/spring.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springMVC/springMVC.iml" filepath="$PROJECT_DIR$/springMVC/springMVC.iml" />
+    </modules>
+  </component>
+</project>

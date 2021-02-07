@@ -14,8 +14,7 @@ import org.springframework.stereotype.Component;
 //@Component
 public class PersonDaoImpl implements PersonDao {
     @Override
-    public int add(Person person) {
+    public void add(Person person) {
         System.out.println("add a person");
-        return 0;
     }
 }

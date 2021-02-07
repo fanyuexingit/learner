@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+<!--创建bean-->
+    <bean id="user" class="com.fan.learn.ioc1.entity.User">
+<!--属性赋值-->
+        <property name="id" value="1"></property>
+        <property name="name" value="fanyuexin"></property>
+    </bean>
+
+<!--上次的例子-->
+    <bean id="mysqlDaoImpl" class="com.fan.learn.ioc0.dao.DaoImplMysql"/>
+    <bean id="oracleDaoImpl" class="com.fan.learn.ioc0.dao.DaoImplOracle"/>
+    <bean id="defaultDaoImpl" class="com.fan.learn.ioc0.dao.DaoImpl"/>
+    <bean id="serviceImpl" class="com.fan.learn.ioc0.service.ServiceImpl">
+        <property name="dao" ref="mysqlDaoImpl"></property>
+    </bean>
+
+
+
+
+
+</beans>

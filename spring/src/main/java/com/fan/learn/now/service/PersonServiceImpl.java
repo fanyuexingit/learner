@@ -29,8 +29,7 @@ public class PersonServiceImpl implements PersonService {
         this.personDaoImpl = personDaoImpl;
     }
 
-    public int add(Person person) {
+    public void add(Person person) {
         personDaoImpl.add(person);
-        return 0;
     }
 }

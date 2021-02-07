@@ -11,5 +11,5 @@ import com.fan.learn.now.domain.Person;
  * Created by fanyuexin on 2021/02/02
  */
 public interface PersonDao {
-    int add(Person person);
+    void add(Person person);
 }
