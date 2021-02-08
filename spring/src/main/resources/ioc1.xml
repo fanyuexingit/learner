@@ -1,18 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:c="http://www.springframework.org/schema/c"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-        https://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/context/spring-context.xsd">
 
-<!--创建bean-->
-    <bean id="user" class="com.fan.learn.ioc1.entity.User">
-<!--属性赋值-->
-        <property name="id" value="1"></property>
-        <property name="name" value="fanyuexin"></property>
-    </bean>
 
-<!--上次的例子-->
+    <!--bean就是java对象,由Spring创建和管理-->
+
+    <!--
+        id 是bean的标识符,要唯一,如果没有配置id,name就是默认标识符
+        如果配置id,又配置了name,那么name是别名
+        name可以设置多个别名,可以用逗号,分号,空格隔开
+        如果不配置id和name,可以根据applicationContext.getBean(.class)获取对象;
+
+        class是bean的全限定名=包名+类名
+    -->
+
+<!--上次的例子改为xml配置 要实现不同的操作 只需要在xml配置文件中进行修改 ref-->
     <bean id="mysqlDaoImpl" class="com.fan.learn.ioc0.dao.DaoImplMysql"/>
     <bean id="oracleDaoImpl" class="com.fan.learn.ioc0.dao.DaoImplOracle"/>
     <bean id="defaultDaoImpl" class="com.fan.learn.ioc0.dao.DaoImpl"/>
@@ -20,8 +29,102 @@
         <property name="dao" ref="mysqlDaoImpl"></property>
     </bean>
 
+    <!--constructor 注入-->
+    <bean id="userTest" class="com.fan.learn.ioc1.domain.UserTest">
+        <!--参数索引-->
+        <constructor-arg index="0" value="27"/>
+        <constructor-arg index="1" value="fanyuexin"/>
+        <!--参数名称-->
+<!--        <constructor-arg name="age" value="27"/>-->
+<!--        <constructor-arg name="name" value="fanyuexin"/>-->
+        <!--参数类型-->
+<!--        <constructor-arg type="int" value="27"/>-->
+<!--        <constructor-arg type="java.lang.String" value="fanyuexin"/>-->
+    </bean>
+    <!--设置别名-->
+    <alias name="userTest" alias="userAlias"></alias>
+    <alias name="userTest" alias="userAlias2"></alias>
 
 
+    <!--可利用命名空间 p:properties c:constructor-->
+<!--    <bean id="userTest2" class="com.fan.learn.ioc1.domain.UserTest" p:age="27" p:name="fanyuexin" c:_0="27" c:_1="fanyuexin" c:age="27" c:name="fanyuexin"></bean>-->
+
+
+    <!--setter 注入各种类型-->
+    <bean id="student" class="com.fan.learn.ioc1.domain.Student">
+        <!--注入常量-->
+        <property name="name" value="fanyuexin"></property>
+        <!--注入引用-->
+        <property name="address" ref="address"></property>
+        <!--以下很多内部装配-->
+        <!--注入数组-->
+        <property name="books">
+            <array>
+                <value>西游记</value>
+                <value>红楼梦</value>
+                <value>水浒传</value>
+            </array>
+        </property>
+        <!--注入List-->
+        <property name="hobbys">
+            <list>
+                <value>听歌</value>
+                <value>看电影</value>
+                <value>爬山</value>
+            </list>
+        </property>
+        <!--注入Map-->
+        <property name="card">
+            <map>
+                <entry key="中国邮政" value="456456456465456"/>
+                <entry key="建设" value="1456682255511"/>
+            </map>
+        </property>
+        <!--注入Set-->
+        <property name="games">
+            <set>
+                <value>LOL</value>
+                <value>BOB</value>
+                <value>COC</value>
+            </set>
+        </property>
+        <!--注入Null-->
+        <property name="wife"><null/></property>
+        <!--注入Properties-->
+        <property name="info">
+            <props>
+                <prop key="学号">20190604</prop>
+                <prop key="性别">男</prop>
+                <prop key="姓名">小明</prop>
+            </props>
+        </property>
+    </bean>
+    <bean id="address" class="com.fan.learn.ioc1.domain.Address">
+        <property name="address" value="beijing"></property>
+    </bean>
+
+
+
+<!--正文 -->
+    <bean id="personDaoImpl" name="personDaoImpl" class="com.fan.learn.ioc1.dao.PersonDaoImpl"></bean>
+<!--通过 setter 注入 本质：setter -->
+<!--    <bean id="personServiceImpl" name="personServiceImpl" class="com.fan.learn.ioc1.service.PersonServiceImpl">-->
+<!--        <property name="personDao" ref="personDaoImpl"></property>-->
+<!--    </bean>-->
+
+<!--通过 constructor 注入-->
+<!--    <bean id="personServiceImpl" name="personServiceImpl" class="com.fan.learn.ioc1.service.PersonServiceImpl">-->
+<!--        <constructor-arg ref="personDao"/>-->
+<!--    </bean>-->
+
+<!--通过 p 名称空间 注入 本质：setter-->
+<!--    <bean id="personServiceImpl" name="personServiceImpl" class="com.fan.learn.ioc1.service.PersonServiceImpl" p:personDaoImpl-ref="personDao"></bean>-->
+
+<!--XML 根据名字 自动注入 本质：setter-->
+<!--    <bean id="personServiceImpl" name="personServiceImpl" class="com.fan.learn.ioc1.service.PersonServiceImpl" autowire="byName"></bean>-->
+
+<!--XML 根据类型 自动注入 如果使用了根据类型来自动装配，那么在IOC容器中只能有一个这样的类型，否则就会报错！ 本质：setter-->
+<!--    <bean id="personServiceImpl" name="personServiceImpl" class="com.fan.learn.ioc1.service.PersonServiceImpl" autowire="byType"></bean>-->
 
 
 </beans>
