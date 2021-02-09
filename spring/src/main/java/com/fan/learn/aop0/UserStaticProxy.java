@@ -10,11 +10,11 @@ import com.fan.learn.aop0.UserDao;
 /**
  * Created by fanyuexin on 2021/02/03
  */
-public class StaticProxy implements UserDao {
+public class UserStaticProxy implements UserDao {
 
     private UserDao userDao;
 
-    public StaticProxy(UserDao userDao) {
+    public UserStaticProxy(UserDao userDao) {
         this.userDao = userDao;
     }
 

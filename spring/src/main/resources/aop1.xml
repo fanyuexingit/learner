@@ -10,9 +10,27 @@
         http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
 
-    <context:component-scan base-package="com.fan.learn.aop1"/>
+<!--    <context:component-scan base-package="com.fan.learn.aop1"/>-->
 
     <!-- 开启aop注解方式 -->
-    <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+<!--    <aop:aspectj-autoproxy></aop:aspectj-autoproxy>-->
 
+    <!--有接口的目标类-->
+    <bean id="userDaoImpl" class="com.fan.learn.aop1.UserDaoImpl"></bean>
+    <!--无接口的目标类-->
+    <bean id="orderDaoImpl" class="com.fan.learn.aop1.OrderDaoImpl"></bean>
+    <!--切面类-->
+    <bean id="aop" class="com.fan.learn.aop1.Aop"></bean>
+    <!--AOP配置-->
+    <aop:config>
+        <!--切点方法-->
+        <aop:pointcut id="pt" expression="execution(* com.fan.learn.aop1..*.*(..))"/>
+<!--        <aop:pointcut id="pt" expression="com.fan.learn.aop1.Aop.pt()"/>-->
+        <!--切面类-->
+        <aop:aspect ref="aop">
+            <!--切面方法-->
+            <aop:before method="begin" pointcut-ref="pt"></aop:before>
+            <aop:before method="after" pointcut-ref="pt"></aop:before>
+        </aop:aspect>
+    </aop:config>
 </beans>

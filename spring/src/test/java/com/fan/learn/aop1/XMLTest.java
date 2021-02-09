@@ -1,7 +1,7 @@
 /**
  * @description:
  * @author: Andy
- * @time: 2021/02/08 16:36
+ * @time: 2021/02/09 10:11
  */
 package com.fan.learn.aop1;
 
@@ -10,22 +10,19 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
- * Created by fanyuexin on 2021/02/08
+ * Created by fanyuexin on 2021/02/09
  */
-public class MyTest {
+public class XMLTest {
 
-    //有接口 使用动态代理
     @Test
-    public void test0(){
+    public void testXML(){
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("aop1.xml");
-        UserDao userDao = (UserDao)applicationContext.getBean("userDaoImpl");
+        //有接口 使用动态代理
+        UserDao userDao = (UserDao) applicationContext.getBean("userDaoImpl");
         userDao.save();
         System.out.println(userDao.getClass());
-    }
-    //没有接口 使用cglib代理
-    @Test
-    public void test1(){
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("aop1.xml");
+        System.out.println("---------------------");
+        //没有接口 使用cglib代理
         OrderDaoImpl orderDaoImpl = (OrderDaoImpl)applicationContext.getBean("orderDaoImpl");
         orderDaoImpl.save();
         System.out.println(orderDaoImpl.getClass());

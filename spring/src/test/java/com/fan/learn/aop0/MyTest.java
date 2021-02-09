@@ -14,27 +14,37 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class MyTest {
 
-    //静态代理测试
+    //静态代理 有接口
     @Test
     public void test0(){
         UserDao userDao = new UserDaoImpl();
-        StaticProxy userDaoProxy = new StaticProxy(userDao);
-        userDaoProxy.save();
+        UserStaticProxy userStaticProxy = new UserStaticProxy(userDao);
+        userStaticProxy.save();
     }
-    //动态代理测试
+
+    //静态代理 无接口
+    @Test
+    public void test00(){
+        OrderStaticProxy orderStaticProxy = new OrderStaticProxy();
+        orderStaticProxy.save();
+    }
+
+    //jdk动态代理
     @Test
     public void test1(){
-        DynamicProxy dynamicProxy = new DynamicProxy();
+        JDKDynamicProxy dynamicProxy = new JDKDynamicProxy();
         UserDao proxy = dynamicProxy.getProxy();
         proxy.save();
     }
-    //cglib代理测试
+
+    //cglib动态代理
     @Test
     public void test2(){
         UserDaoImpl userDaoImpl = new UserDaoImpl();
-        UserDaoImpl proxyInstance = (UserDaoImpl)new CglibProxy(userDaoImpl).getProxyInstance();
+        UserDaoImpl proxyInstance = (UserDaoImpl)new CglibDynamicProxy(userDaoImpl).getProxyInstance();
         proxyInstance.save();
     }
+
     //工厂静态
     @Test
     public void test3(){
@@ -42,6 +52,7 @@ public class MyTest {
         UserDao proxy = (UserDao)applicationContext.getBean("proxy");
         proxy.save();
     }
+
     //工厂非静态
     @Test
     public void test4(){

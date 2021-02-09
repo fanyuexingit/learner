@@ -70,9 +70,84 @@ personService.add(person);
 
 ## 3. AOP 
 1. 静态代理
+    1. 基于接口
+    2. 基于类
 2. 动态代理
-3. cglib代理
-4. 工厂静态代理 ？
-5、工厂非静态代理 ？
-6、**spring aop** （目标有接口，动态代理；目标没接口，cglib代理）
-### 3.1 
+    1. jdk代理
+    2. cglib代理
+3. 工厂
+4. **spring aop** （目标有接口，动态代理；目标没接口，cglib代理）
+
+### 3.1 xml
+* 配置文件
+```xml
+<!--切面类-->
+<bean id="aop" class="com.fan.learn.aop1.Aop"></bean>
+<!--AOP配置-->
+<aop:config>
+    <!--切点方法-->
+    <aop:pointcut id="pt" expression="execution(* com.fan.learn.aop1..*.*(..))"/>
+    <!--<aop:pointcut id="pt" expression="com.fan.learn.aop1.Aop.pt()"/>-->
+    <!--切面类-->
+    <aop:aspect ref="aop">
+        <!--切面方法-->
+        <aop:before method="begin" pointcut-ref="pt"></aop:before>
+        <aop:before method="after" pointcut-ref="pt"></aop:before>
+    </aop:aspect>
+</aop:config>
+```
+### 3.2 annotation
+* 配置类
+```
+@Configuration
+@ComponentScan(basePackages = "com.fan.learn.aop1")
+@EnableAspectJAutoProxy
+```
+* 关键注解：
+    * @EnableAspectJAutoProxy
+    * @Component
+    * @Aspect  指定一个类为切面类
+    * @Pointcut("execution(* com.fan.learn.aop1..*.*(..))") 指定切入点表达式
+    * @Before   前置通知: 目标方法之前执行
+    * @After    后置通知：目标方法之后执行（始终执行）
+    * @AfterReturning    返回后通知： 执行方法结束前执行(异常不执行)
+    * @AfterThrowing    异常通知:  出现异常时候执行
+    * @Around   环绕通知： 环绕目标方法执行
+* 切入点表达式
+    * execution(modifiers-pattern? ret-type-pattern declaring-type-pattern? name-pattern(param-pattern) throws-pattern?)
+    ```
+    符号讲解：
+    ?号代表0或1，可以不写
+    “*”号代表任意类型，0或多
+    方法参数为..表示为可变参数
+    
+    参数讲解：
+    modifiers-pattern?【修饰的类型，可以不写】
+    ret-type-pattern【方法返回值类型，必写】
+    declaring-type-pattern?【方法声明的类型，可以不写】
+    name-pattern(param-pattern)【要匹配的名称，括号里面是方法的参数】
+    throws-pattern?【方法抛出的异常类型，可以不写】
+    ```
+### 3.3 java config
+* 略
+
+## 4. dao
+### 4.1 spring dao(data access object)
+* 略
+### 4.2 事务的隔离级别
+|事务的隔离级别                    |可能出现   |可以解决               |原因|
+|---|---|---|---|
+|TRANSACTION_READ_UNCOMMITTED   |脏读       |X                    |未提交 |
+|TRANSACTION_READ_COMMITTED     |不可重复读  |脏读                 |未锁行   |
+|TRANSACTION_REPEATABLE_READ    |幻读       |脏读 不可重复读         |未锁表   |
+|TRANSACTION_SERIALIZABLE       |X          |脏读 不可重复读 幻读    |X   |
+### 4.2 事务的传播方式
+|事务的传播方式               |解释   |
+|---|---|
+|PROPAGATION_REQUIRED       |如果当前没有事务，就新建一个事务，如果已经存在一个事务中，加入到这个事务中。这是最常见的选择       |
+|PROPAGATION_SUPPORTS       |支持当前事务，如果当前没有事务，就以非事务方式执行                                            |
+|PROPAGATION_MANDATORY      |使用当前的事务，如果当前没有事务，就抛出异常                                                 |
+|PROPAGATION_REQUIRES_NEW   |新建事务，如果当前存在事务，把当前事务挂起                                                   |
+|PROPAGATION_NOT_SUPPORTED  |以非事务方式执行操作，如果当前存在事务，就把当前事务挂起                                       |
+|PROPAGATION_NEVER          |以非事务方式执行，如果当前存在事务，则抛出异常                                               |
+|PROPAGATION_NESTED         |如果当前存在事务，则在嵌套事务内执行。如果当前没有事务，则执行与PROPAGATION_REQUIRED类似的操作   |

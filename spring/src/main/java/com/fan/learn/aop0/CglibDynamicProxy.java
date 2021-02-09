@@ -14,11 +14,11 @@ import java.lang.reflect.Method;
 /**
  * Created by fanyuexin on 2021/02/03
  */
-public class CglibProxy implements MethodInterceptor {
+public class CglibDynamicProxy implements MethodInterceptor {
 
     private Object target;
 
-    public CglibProxy(Object target) {
+    public CglibDynamicProxy(Object target) {
         this.target = target;
     }
 

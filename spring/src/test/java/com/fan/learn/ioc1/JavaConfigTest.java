@@ -5,8 +5,7 @@
  */
 package com.fan.learn.ioc1;
 
-import com.fan.learn.PersonJavaConfig;
-import com.fan.learn.ioc1.dao.PersonDao;
+import com.fan.learn.IocJavaConfig;
 import com.fan.learn.ioc1.domain.Person;
 import com.fan.learn.ioc1.service.PersonService;
 import org.junit.Test;
@@ -19,7 +18,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  * Created by fanyuexin on 2021/02/08
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes= PersonJavaConfig.class)
+@ContextConfiguration(classes= IocJavaConfig.class)
 public class JavaConfigTest {
 
     @Autowired()

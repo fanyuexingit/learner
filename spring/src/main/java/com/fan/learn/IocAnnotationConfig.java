@@ -15,5 +15,5 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @ComponentScan(basePackageClasses={PersonServiceImpl.class, PersonDaoImpl.class})
-public class PersonAnnotationConfig {
+public class IocAnnotationConfig {
 }

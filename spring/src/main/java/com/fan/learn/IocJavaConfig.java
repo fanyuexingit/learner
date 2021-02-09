@@ -16,7 +16,7 @@ import org.springframework.context.annotation.Configuration;
  * Created by fanyuexin on 2021/02/02
  */
 @Configuration
-public class PersonJavaConfig {
+public class IocJavaConfig {
 
     @Bean
     public PersonService getPersonService(){

@@ -22,33 +22,71 @@
     </properties>
 
     <dependencies>
-
-        <!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
+        <!--ioc相关-->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
             <version>5.2.12.RELEASE</version>
         </dependency>
-
-        <!-- https://mvnrepository.com/artifact/org.aspectj/aspectjweaver -->
+        <!--aop相关-->
         <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjweaver</artifactId>
             <version>1.9.5</version>
             <scope>runtime</scope>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/aopalliance/aopalliance -->
         <dependency>
             <groupId>aopalliance</groupId>
             <artifactId>aopalliance</artifactId>
             <version>1.0</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.aspectj/aspectjrt -->
         <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjrt</artifactId>
             <version>1.9.5</version>
         </dependency>
+
+        <!--dao相关-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>5.2.12.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+            <version>5.2.12.RELEASE</version>
+        </dependency>
+
+        <!--c3p0 -->
+        <dependency>
+            <groupId>com.mchange</groupId>
+            <artifactId>c3p0</artifactId>
+            <version>0.9.5.5</version>
+        </dependency>
+        <!--druid -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>1.2.3</version>
+        </dependency>
+
+        <!--mysql -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.21</version>
+        </dependency>
+
+        <!--lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.12</version>
+            <scope>provided</scope>
+        </dependency>
+
+
 
 
         <dependency>
@@ -57,7 +95,6 @@
             <version>5.2.12.RELEASE</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/junit/junit -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
