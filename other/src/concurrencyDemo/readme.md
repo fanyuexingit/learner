@@ -15,7 +15,9 @@
 * 线程要运行的代码都统一存放在了run方法中。
 * 线程要运行必须要通过类中指定的方法开启。start方法。（启动后，就多了一条执行路径）
 * start方法：1）、启动了线程；2）、让jvm调用了run方法。
-
+***
+* 注意：线程优先级1-10，数字越大，优先级越高，但是cpu调度不一定按照优先级顺序，优先级只能增大被调度的概率
+* 用户线程 守护线程（daemon）
 ## 2. 使用
 1. 通过继承 Thread 类本身
     1. 定义类继承Thread类
@@ -120,7 +122,18 @@ synchronized 方法返回值 方法名称（参数列表）｛ ｝
     * Jstack命令
     * JConsole工具
 
-## 7. Lock 接口
+## 7. Lock 接口 实现类 ReentrantLock
+private final ReentrantLock lock = new ReentrantLock();
+lock.lock();
+lock.unlock();
+
+## 8. 生产者 消费者
+管程法：利用缓冲区
+信号灯法：利用标志位
+
+
+## 9. 线程池
+
 
 ***
 reference: https://docs.oracle.com/javase/tutorial/essential/concurrency/index.html
