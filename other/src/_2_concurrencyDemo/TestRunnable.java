@@ -3,7 +3,7 @@
  * @author: Andy
  * @time: 2021/02/18 14:23
  */
-package concurrencyDemo;
+package _2_concurrencyDemo;
 
 /**
  * Created by fanyuexin on 2021/02/18

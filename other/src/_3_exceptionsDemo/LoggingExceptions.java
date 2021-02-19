@@ -3,7 +3,7 @@
  * @author: Andy
  * @time: 2021/01/27 9:46
  */
-package exceptionsDemo;
+package _3_exceptionsDemo;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;

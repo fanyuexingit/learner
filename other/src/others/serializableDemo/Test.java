@@ -3,7 +3,7 @@
  * @author: Andy
  * @time: 2021/01/26 13:22
  */
-package serializableDemo;
+package others.serializableDemo;
 
 import java.io.*;
 
@@ -26,7 +26,7 @@ public class Test {
             person.setSex(1);
             person.setIdno("410511199410271211");
 
-            ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream(new File("D:\\workspace_learn\\learner\\other\\src\\serializableDemo\\test.txt")));
+            ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream(new File("D:\\workspace_learn\\learner\\other\\src\\others.serializableDemo\\test.txt")));
             objectOutputStream.writeObject(person);
             System.out.println("serialize object person successfully");
             objectOutputStream.close();
@@ -41,7 +41,7 @@ public class Test {
     public static void readPerson(){
         Person person = null;
         try {
-            ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream(new File("D:\\workspace_learn\\learner\\other\\src\\serializableDemo\\test.txt")));
+            ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream(new File("D:\\workspace_learn\\learner\\other\\src\\others.serializableDemo\\test.txt")));
             person = (Person)objectInputStream.readObject();
             System.out.println("deserialize object person successfully");
             objectInputStream.close();

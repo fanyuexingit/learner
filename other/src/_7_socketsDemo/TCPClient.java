@@ -3,7 +3,7 @@
  * @author: Andy
  * @time: 2021/02/18 13:45
  */
-package socketsDemo;
+package _7_socketsDemo;
 
 import java.io.IOException;
 import java.io.OutputStream;

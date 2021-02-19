@@ -3,7 +3,7 @@
  * @author: Andy
  * @time: 2021/01/26 13:23
  */
-package serializableDemo;
+package others.serializableDemo;
 
 import java.io.Serializable;
 

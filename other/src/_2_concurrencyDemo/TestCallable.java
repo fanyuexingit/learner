@@ -3,7 +3,7 @@
  * @author: Andy
  * @time: 2021/02/18 14:54
  */
-package concurrencyDemo;
+package _2_concurrencyDemo;
 
 import java.util.Random;
 import java.util.concurrent.*;
