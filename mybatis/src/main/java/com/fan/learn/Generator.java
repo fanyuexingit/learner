@@ -19,6 +19,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.apache.ibatis.io.Resources.getResourceAsStream;
 import static org.mybatis.generator.config.ModelType.FLAT;
 
 /**
@@ -39,7 +40,7 @@ public class Generator {
 //        Configuration config = cp.parseConfiguration(configFile);
 
         //不用写绝对路径了
-        InputStream inputStream = Surrogate.Generator.class.getResourceAsStream("/generatorConfig.xml");
+        InputStream inputStream = getResourceAsStream("/generatorConfig.xml");
         ConfigurationParser cp = new ConfigurationParser(warnings);
         Configuration config = cp.parseConfiguration(inputStream);
 

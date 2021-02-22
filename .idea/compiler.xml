@@ -11,17 +11,24 @@
         <module name="springMVC" />
         <module name="javaWebTest" />
         <module name="javaWeb" />
+        <module name="springboot" />
         <module name="spring" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="8">
-      <module name="javaWeb" target="8" />
-      <module name="javaWebTest" target="8" />
-      <module name="learner" target="8" />
-      <module name="mybatis" target="8" />
-      <module name="mybatis-generator" target="8" />
-      <module name="spring" target="8" />
+      <module name="javaWeb" target="1.5" />
+      <module name="javaWebTest" target="1.8" />
+      <module name="learner" target="1.5" />
+      <module name="mybatis" target="1.5" />
+      <module name="mybatis-generator" target="1.5" />
+      <module name="spring" target="1.8" />
+      <module name="springboot" target="1.8" />
       <module name="springMVC" target="1.8" />
     </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="springboot" options="-parameters" />
+    </option>
   </component>
 </project>
